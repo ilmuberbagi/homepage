@@ -1,0 +1,8 @@
+<h3>Pelatihan dan Sertifikasi Gratis</h3>
+<p>Merupakan program kegiatan Ilmu Berbagi Foundation yang bertujuan untuk meningkatkan kapasitas kemampuan dan keahlian dengan memberikan materi pelatihan intensif (3-4 hari) khususnya di bidang Teknologi Informasi. Pelatihan ini diberikan kepada siswa-siswi SMA/SMK yang terpilih yang berasal dari keluarga dhuafa.</p>
+
+<p><img src="http://ilmuberbagi.or.id/wp-content/uploads/2013/09/pelatihan_tik_jogja_almujib.jpg" class="img-responsive"></p>
+
+<p>Tahap awal pelatihan ini pada September 2013 dimulai dengan diberikannya pelatihan TIK gratis kepada adik-adik siswa SMK ITACO Bekasi yang merupakan sekolah binaan komunitas Ilmu Berbagi wilayah Jakarta, sekolah swadaya bidang teknologi jaringan dan komputer yang hadir dengan memprioritaskan anak-anak dari keluarga pra sejahtera utamanya kaum dhuafa dan anak yatim untuk dapat mengenyam pendidikan tingkat menengah atas yang terjangkau namun tetap berkualitas. Tahap selanjutnya pada Januari 2014, pelatihan TIK gratis ini juga diberikan kepada adik-adik SD-SMA di Pondok Pesantren Almujib, Ngemplak, Jogja, yang diampu oleh para volunteer pengajar TIK komunitas Ilmu Berbagi wilayah Jogjakarta.</p>
+
+<p>Saat ini, kegiatan pelatihan yang dilengkapi dengan sertifikasi keahlian ini, difokuskan untuk dilaksanakan di Rumah Komunitas Ilmu Berbagi di Jogjakarta dan di berbagai lokasi lainnya yang bekerjasama dengan berbagai Mitra Komunitas.</p>

@@ -1,0 +1,96 @@
+/* 
+	custome style import font monserrat
+	author : sabbana 
+*/
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  src: url('../fonts/Montserrat-Bold.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  src: url('../fonts/Montserrat-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  src: url('../fonts/Montserrat-Light.ttf') format('truetype');
+}
+
+#footer{
+	font-size:12px;
+}
+#copyright{
+	padding:10px;
+}
+.navbar ul.nav > li > a{
+	text-decoration:none;
+}
+
+body {
+  font-family: "Montserrat", Helvetica, Arial, sans-serif;
+}
+.breadcrumb {
+  font-family: "Montserrat", Helvetica, Arial, sans-serif;
+}
+
+#productMain .sizes a {
+  font-family: "Montserrat", Helvetica, Arial, sans-serif;
+}
+
+#blog-post .comment .reply {
+  font-family: "Montserrat", Helvetica, Arial, sans-serif;
+}
+
+.panel.sidebar-menu ul.nav.category-menu li a {
+  font-family: "Montserrat", Helvetica, Arial, sans-serif;
+}
+
+#intro .item {
+  font-family: "Montserrat", Helvetica, Arial, sans-serif;
+}
+
+.btn {
+  font-family: "Montserrat", Helvetica, Arial, sans-serif;
+  font-size:10px;
+}
+
+.ribbon .theribbon {
+  font-family: "Montserrat", Helvetica, Arial, sans-serif;
+}
+
+.bar.background-image-fixed-2 {
+    background: url('../img/bg01.jpg') center top no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+#top{ background-color:#444; }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-family: "Montserrat", Helvetica, Arial, sans-serif;
+}
+
+.pagination {
+  font-family: "Montserrat", Helvetica, Arial, sans-serif;
+}
+
+.pager {
+  font-family: "Montserrat", Helvetica, Arial, sans-serif;
+}
+
+.label {
+  font-family: "Montserrat", Helvetica, Arial, sans-serif;
+}
