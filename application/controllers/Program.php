@@ -19,8 +19,8 @@ class Program extends CI_Controller {
 	}
 
 	private function get_blog_category(){
-		$url = "http://localhost/ibf/services/article/category";
-		return json_decode(file_get_contents($url));		
+		$url = "article/category";
+		return json_decode(file_get_contents(API_URL.$url));
 	}
 
 	public function read($param){

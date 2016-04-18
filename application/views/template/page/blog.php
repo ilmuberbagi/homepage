@@ -20,9 +20,10 @@
 <div id="content">
 	<div class="container">
 		<div class="row">
+			<?php if(!empty($article)){ ?>
 			<div class="col-md-9" id="blog-listing-small">
 				<div class="row">
-					<?php if(!empty($article)){ foreach($article as $ar){?>
+					<?php foreach($article as $ar){?>
 					<div class="col-md-4 col-sm-6">
 						<div class="box-image-text blog">
 							<div class="top">
@@ -37,7 +38,7 @@
 								</div>
 							</div>
 							<div class="content">
-								<h4><a href="<?php echo site_url().'blog/read/'.$ar->article_id;?>"><?php echo $ar->article_title;?></a></h4>
+								<h4><a href="<?php echo site_url().'blog/read/'.$ar->article_id.'/'.gen_url($ar->article_title);?>"><?php echo $ar->article_title;?></a></h4>
 								<p class="author-category">Oleh <a href="#"><?php echo $ar->member_name;?></a> in <a href="<?php echo site_url().'blog/category/'.gen_url($ar->category_name);?>"><?php echo $ar->category_name;?></a>
 								</p>
 								<p class="intro"><?php echo headline($ar->article_content);?></p>
@@ -46,15 +47,16 @@
 							</div>
 						</div>
 					</div>
+					<?php } ?>
 				</div>
 				<ul class="pager">
 					<li class="previous"><a href="#">&larr; Older</a></li>
 					<li class="next"><a href="#">Newer &rarr;</a></li>
 				</ul>
-				<?php }}else {?>
-					<div class="col-md-4 col-sm-6">Belum ada artikel yang dapat ditampilkan...</div>
-				<?php } ?>
 			</div>
+			<?php }else {?>
+			<div class="col-md-9" id="blog-listing-small">Belum ada artikel yang dapat ditampilkan...</div>
+			<?php } ?>
 			
 			<!-- right side -->
 			<div class="col-md-3">

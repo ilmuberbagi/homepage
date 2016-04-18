@@ -22,8 +22,8 @@ class Home extends CI_Controller {
 		$this->data['page'] = 'static/home';
 		
 		# get category article
-		$url = "http://localhost/ibf/services/article/category";
-		$this->data['article_categories'] = json_decode(file_get_contents($url));
+		$url = "article/category";
+		$this->data['article_categories'] = json_decode(file_get_contents(API_URL.$url));
 		
 		$this->load->view('template', $this->data);
 	}

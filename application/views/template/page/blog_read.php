@@ -8,9 +8,7 @@
 				<ul class="breadcrumb">
 					<li><a href="<?php echo site_url();?>">Home</a></li>
 					<li><a href="<?php echo site_url().'blog';?>">Blog</a></li>
-					<?php if($this->uri->segment(4) != ""){?>
-					<li><?php echo ucwords(str_replace('-',' ', $this->uri->segment(4)));?></li>
-					<?php } ?>
+					<li>Read</li>
 				</ul>
 			</div>
 		</div>
@@ -22,7 +20,7 @@
 		<div class="row">
 			<div class="col-md-9" id="blog-post">
 				
-				<p class="text-muted text-uppercase mb-small text-right">Oleh <a href="#"><?php echo $article[0]->member_name;?></a> | <?php echo date('Y M d H:i', strtotime($article[0]->article_date_update));?></p>
+				<p class="text-muted text-uppercase mb-small text-right">Oleh <a href="#"><?php echo $article[0]->member_name;?></a> | <?php echo date('Y M d - H:i', strtotime($article[0]->article_date_update));?></p>
 				<p class="lead"></p>
 				<div id="post-content">
 					<?php echo set_image($article[0]->article_image);?>

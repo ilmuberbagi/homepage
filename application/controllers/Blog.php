@@ -20,14 +20,14 @@ class Blog extends CI_Controller {
 
 	private function get_blog_category(){
 		$url = "article/category";
-		return json_decode(file_get_contents(API_URL_LOCAL.$url));
+		return json_decode(file_get_contents(API_URL.$url));
 	}
 	
 	public function index(){
 		$this->data['title'] = 'IBF Artikel : Last Post';
 		$this->data['page'] = 'page/blog';
 		$url = "article/category/all";
-		$this->data['article'] = json_decode(file_get_contents(API_URL_LOCAL.$url));
+		$this->data['article'] = json_decode(file_get_contents(API_URL.$url));
 		$this->load->view('template', $this->data);		
 	}
 	
@@ -37,7 +37,7 @@ class Blog extends CI_Controller {
 		
 		# get category article
 		$url = "article/category/".$param.'/'.$start.'/'.$offset;
-		$this->data['article'] = json_decode(file_get_contents(API_URL_LOCAL.$url));
+		$this->data['article'] = json_decode(file_get_contents(API_URL.$url));
 		
 		$this->load->view('template', $this->data);
 	}
@@ -45,7 +45,7 @@ class Blog extends CI_Controller {
 	public function read($id, $title){
 		$this->data['page'] = 'page/blog_read';
 		$url = "article/read/".$id;
-		$this->data['article'] = json_decode(file_get_contents(API_URL_LOCAL.$url));
+		$this->data['article'] = json_decode(file_get_contents(API_URL.$url));
 		$this->data['title'] = 'IBF Artikel : '.$title;
 		$this->load->view('template', $this->data);		
 	}
