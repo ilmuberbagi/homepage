@@ -42,8 +42,12 @@ class Blog extends CI_Controller {
 		$this->load->view('template', $this->data);
 	}
 	
-	public function read($key){
-		
+	public function read($id, $title){
+		$this->data['page'] = 'page/blog_read';
+		$url = "article/read/".$id;
+		$this->data['article'] = json_decode(file_get_contents(API_URL_LOCAL.$url));
+		$this->data['title'] = 'IBF Artikel : '.$title;
+		$this->load->view('template', $this->data);		
 	}
 	
 }

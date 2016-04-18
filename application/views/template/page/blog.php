@@ -27,12 +27,12 @@
 						<div class="box-image-text blog">
 							<div class="top">
 								<div class="image">
-									<?php echo get_image_from_content($ar->article_content);?>
+									<?php echo set_image($ar->article_image);?>
 								</div>
 								<div class="bg"></div>
 								<div class="text">
 									<p class="buttons">
-										<a href="<?php echo site_url().'blog/read/'.$ar->article_id;?>" class="btn btn-template-transparent-primary"><i class="fa fa-link"></i> Baca Selengkapnya</a>
+										<a href="<?php echo site_url().'blog/read/'.$ar->article_id.'/'.gen_url($ar->article_title);?>" class="btn btn-template-transparent-primary"><i class="fa fa-link"></i> Baca Selengkapnya</a>
 									</p>
 								</div>
 							</div>
@@ -41,19 +41,22 @@
 								<p class="author-category">Oleh <a href="#"><?php echo $ar->member_name;?></a> in <a href="<?php echo site_url().'blog/category/'.gen_url($ar->category_name);?>"><?php echo $ar->category_name;?></a>
 								</p>
 								<p class="intro"><?php echo headline($ar->article_content);?></p>
-								<p class="read-more"><a href="<?php echo site_url().'blog/read/'.$ar->article_id;?>" class="btn btn-template-main">Baca Selengkapnnya</a>
+								<p class="read-more"><a href="<?php echo site_url().'blog/read/'.$ar->article_id.'/'.gen_url($ar->article_title);?>" class="btn btn-template-main">Baca Selengkapnnya</a>
 								</p>
 							</div>
 						</div>
 					</div>
-					<?php } ?>
 				</div>
 				<ul class="pager">
 					<li class="previous"><a href="#">&larr; Older</a></li>
 					<li class="next"><a href="#">Newer &rarr;</a></li>
 				</ul>
-				<?php }else { echo "Artikel belum tersedia..."; }?>
+				<?php }}else {?>
+					<div class="col-md-4 col-sm-6">Belum ada artikel yang dapat ditampilkan...</div>
+				<?php } ?>
 			</div>
+			
+			<!-- right side -->
 			<div class="col-md-3">
 				<div class="panel panel-default sidebar-menu">
 					<div class="panel-heading">
