@@ -11,7 +11,7 @@ if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
 function gen_url($str){
-	return strtolower(str_replace(' ','-', $str));
+	return strtolower(str_replace(array(' ','"',"'"),'-', $str));
 }
 
 function get_image_from_content($html){

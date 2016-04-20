@@ -19,6 +19,18 @@
   src: url('../fonts/Montserrat-Light.ttf') format('truetype');
 }
 
+.img-post{
+	width:100%;
+	padding:2px;
+	border:solid 1px #DDD;
+	margin:10px;
+	margin-left:0px;
+}
+#post-content{
+	text-align:justify;
+	line-height:20px;
+}
+
 #footer{
 	font-size:12px;
 }

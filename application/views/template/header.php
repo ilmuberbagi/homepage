@@ -110,7 +110,7 @@
                                         </li>
                                     </ul>
                                 </li>
-                                <li class="dropdown use-yamm yamm-fw <?php echo $this->uri->segment(1) == 'komunitas'?'active':'';?>">
+                                <li class="dropdown use-yamm yamm-fw" <?php echo $this->uri->segment(1) == 'komunitas'?'active':'';?>>
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Komunitas <b class="caret"></b></a>
                                     <ul class="dropdown-menu">
                                         <li>

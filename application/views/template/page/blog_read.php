@@ -30,7 +30,9 @@
 				<div id="comments">
 					<h4 class="text-uppercase">1 comments</h4>
 					<div class="row comment">
-						<div class="col-sm-3 col-md-2 text-center-xs"></div>
+						<div class="col-sm-3 col-md-2 text-center-xs">
+							<img src="http://portal.ilmuberbagi.id/assets/img/foto/IB_eadabe5bc2664563cac96e165f84783d93e2d2a4.jpg" class="img-responsive img-circle">
+						</div>
 						<div class="col-sm-9 col-md-10">
 							<h5 class="text-uppercase">Sabbana Azmi</h5>
 							<p class="posted"><i class="fa fa-clock-o"></i> <?php echo date('d/m/Y H:i');?></p>

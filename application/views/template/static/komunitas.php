@@ -27,18 +27,18 @@
 			<div class="col-sm-3">
 				<div class="panel panel-default sidebar-menu">
 					<div class="panel-heading">
-						<h3 class="panel-title">Layanan</h3>
+						<h3 class="panel-title">Komunitas</h3>
 					</div>
 					<div class="panel-body">
 						<ul class="nav nav-pills nav-stacked">
-							<li><a href="<?php echo base_url().'layanan/rumah-komunitas';?>">Rumah Komunitas</a></li>
-							<li><a href="<?php echo base_url().'layanan/blog';?>">Blog/Artikel</a></li>
-							<li><a href="<?php echo base_url().'layanan/jurnal';?>">Jurnal Ilmu Berbagi</a></li>
-							<li><a href="<?php echo base_url().'layanan/channel';?>">Channel Ilmu Berbagi</a></li>
-							<li><a href="<?php echo base_url().'layanan/quote-berbagi';?>">Quote Berbagi</a></li>
-							<li><a href="<?php echo base_url().'layanan/member';?>">Direktori Sobat Komunitas</a></li>
-							<li><a href="<?php echo base_url().'layanan/mitra';?>">Portal Mitra Komunitas</a></li>
-							<li><a href="<?php echo base_url().'layanan/market';?>">Market Ilmu Berbagi</a></li>
+							<li><a href="<?php echo base_url().'komunitas/sobat-komunitas-ib';?>">Sobat Komunitas IB</a></li>
+							<li><a href="<?php echo base_url().'komunitas/penerima-beastudi-ib';?>">Blog/Artikel</a></li>
+							<li><a href="<?php echo base_url().'komunitas/alumni-beastudi-ib';?>">Jurnal Ilmu Berbagi</a></li>
+							<li><a href="<?php echo base_url().'komunitas/channel';?>">Channel Ilmu Berbagi</a></li>
+							<li><a href="<?php echo base_url().'komunitas/quote-berbagi';?>">Quote Berbagi</a></li>
+							<li><a href="<?php echo base_url().'komunitas/member';?>">Direktori Sobat Komunitas</a></li>
+							<li><a href="<?php echo base_url().'komunitas/mitra';?>">Portal Mitra Komunitas</a></li>
+							<li><a href="<?php echo base_url().'komunitas/market';?>">Market Ilmu Berbagi</a></li>
 						</ul>
 					</div>
 				</div>
