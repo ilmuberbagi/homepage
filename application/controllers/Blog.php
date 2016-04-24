@@ -16,13 +16,25 @@ class Blog extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 		$this->data['article_categories'] = $this->get_blog_category();
+		$this->data['footer_article'] = $this->footer_article();
 	}
 
+	/**
+	 * get category article
+	 */
 	private function get_blog_category(){
 		$url = "article/category";
 		return json_decode(file_get_contents(API_URL.$url));
 	}
-	
+
+	/**
+	 * get the last uploaded article 3
+	 */
+	private function footer_article(){
+		$url = "article/category/all/0/3";
+		return json_decode(file_get_contents(API_URL.$url));		
+	}
+
 	public function index(){
 		$this->data['title'] = 'IBF Artikel : Last Post';
 		$this->data['page'] = 'page/blog';
@@ -42,12 +54,47 @@ class Blog extends CI_Controller {
 		$this->load->view('template', $this->data);
 	}
 	
-	public function read($id, $title){
+	public function tag($param){
+		$param = gen_url($param);
+		$this->data['title'] = 'IBF Artikel : '.ucwords($param);
+		$this->data['page'] = 'page/blog';
+		
+		# get category article
+		$url = "article/tag/".$param.'/'.$start.'/'.$offset;
+		$this->data['article'] = json_decode(file_get_contents(API_URL.$url));
+		
+		$this->load->view('template', $this->data);
+	}
+	
+	public function read($id, $title = ""){
 		$this->data['page'] = 'page/blog_read';
 		$url = "article/read/".$id;
 		$this->data['article'] = json_decode(file_get_contents(API_URL.$url));
 		$this->data['title'] = 'IBF Artikel : '.$title;
+		# open graph for facebook
+		$this->data['ogfb']['og:url'] = current_url();
+		$this->data['ogfb']['og:type'] = 'article';
+		$this->data['ogfb']['og:title'] = (string)$this->data['article'][0]->article_title;
+		$this->data['ogfb']['og:image'] = (string)$this->data['article'][0]->article_image;
+		$this->data['ogfb']['og:description'] = headline($this->data['article'][0]->article_content);
+		$this->data['ogfb']['og:site_name'] = 'Ilmu Berbagi - Artikel';
+		# open graph for twitter
+		$data['ogtw']['twitter:card'] = 'detail_article';
+		$data['ogtw']['twitter:site'] = '@ilmuberbagi';
+		$data['ogtw']['twitter:creator'] = '@ilmuberbagi';
+		$data['ogtw']['twitter:title'] = (string)$this->data['article'][0]->article_title;
+		$data['ogtw']['twitter:image'] = $this->data['ogfb']['og:image'];
+		$data['ogtw']['twitter:description'] = $this->data['ogfb']['og:description'];
+
 		$this->load->view('template', $this->data);		
+	}
+	
+	/**
+	 * Comments post
+	 */
+	public function post_comment(){
+		$name = $this->security->xss_clean($this->input->post('guest_name'));
+		$email = $this->security->xss_clean($this->input->post('guest_email'));
 	}
 	
 }

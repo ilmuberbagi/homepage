@@ -30,36 +30,16 @@
 		<div class="col-md-3 col-sm-6">
 			<h4>Blog</h4>
 			<div class="blog-entries">
+				<?php if(!empty($footer_article)){ foreach ($footer_article as $fa){?>
 				<div class="item same-height-row clearfix">
 					<div class="image same-height-always">
-						<a href="#"><i class="fa fa-image"></i></a>
+						<a href="<?php echo site_url().'blog/read/'.$fa->article_id.'/'.gen_url($fa->article_title);?>"><?php echo $fa->article_image ? set_image($fa->article_image):'<i class="fa fa-image"></i>';?></a>
 					</div>
 					<div class="name same-height-always">
-						<h5><a href="#">Blog post name</a></h5>
+						<h5><a href="<?php echo site_url().'blog/read/'.$fa->article_id.'/'.gen_url($fa->article_title);?>"><?php echo $fa->article_title;?></a></h5>
 					</div>
 				</div>
-
-				<div class="item same-height-row clearfix">
-					<div class="image same-height-always">
-						<a href="#">
-							<img class="img-responsive" src="<?php echo base_url().'assets/img/detailsquare.jpg';?>" alt="">
-						</a>
-					</div>
-					<div class="name same-height-always">
-						<h5><a href="#">Blog post name</a></h5>
-					</div>
-				</div>
-
-				<div class="item same-height-row clearfix">
-					<div class="image same-height-always">
-						<a href="#">
-							<img class="img-responsive" src="<?php echo base_url().'assets/img/detailsquare.jpg';?>" alt="">
-						</a>
-					</div>
-					<div class="name same-height-always">
-						<h5><a href="#">Very very long blog post name</a></h5>
-					</div>
-				</div>
+				<?php }}else{ echo "Belum ada artikel yang dapat ditampilkan..."; } ?>
 			</div>
 			<hr class="hidden-md hidden-lg">
 		</div>

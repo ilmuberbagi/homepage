@@ -38,8 +38,8 @@
 								</div>
 							</div>
 							<div class="content">
-								<h4><a href="<?php echo site_url().'blog/read/'.$ar->article_id;?>"><?php echo $ar->article_title;?></a></h4>
-								<p class="author-category">Oleh <a href="#"><?php echo $ar->member_name;?></a> in <a href="<?php echo site_url().'blog/category/'.gen_url($ar->category_name);?>"><?php echo $ar->category_name;?></a>
+								<h5><a href="<?php echo site_url().'blog/read/'.$ar->article_id.'/'.gen_url($ar->article_title);?>"><?php echo $ar->article_title;?></a></h5>
+								<p class="author-category">Oleh <a href="#"><?php echo $ar->member_name;?></a> @ <a href="<?php echo site_url().'blog/category/'.gen_url($ar->category_name);?>"><?php echo $ar->category_name;?></a>
 								</p>
 								<p class="intro"><?php echo headline($ar->article_content);?></p>
 								<p class="read-more"><a href="<?php echo site_url().'blog/read/'.$ar->article_id.'/'.gen_url($ar->article_title);?>" class="btn btn-template-main">Baca Selengkapnnya</a>

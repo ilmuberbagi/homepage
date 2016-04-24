@@ -18,6 +18,11 @@ class Program extends CI_Controller {
 		$this->data['article_categories'] = $this->get_blog_category();
 	}
 
+	private function footer_article(){
+		$url = "article/category/all/0/3";
+		return json_decode(file_get_contents(API_URL.$url));		
+	}
+
 	private function get_blog_category(){
 		$url = "article/category";
 		return json_decode(file_get_contents(API_URL.$url));

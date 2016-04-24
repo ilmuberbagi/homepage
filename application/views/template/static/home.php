@@ -1,6 +1,6 @@
 <section>
 	<div class="home-carousel">
-		<div class="dark-mask"></div>
+		<!--div class="dark-mask"></div-->
 		<div class="container">
 			<div class="homepage owl-carousel">
 				<div class="item">
@@ -164,101 +164,25 @@
 			</p>
 
 			<div class="row">
+				<?php if(!empty($top4)){ foreach ($top4 as $t4){?>
 				<div class="col-md-3 col-sm-6">
 					<div class="box-image-text blog">
 						<div class="top">
 							<div class="image">
-								<img src="<?php echo base_url().'assets/img/portfolio-4.jpg';?>" alt="" class="img-responsive">
-							</div>
-							<div class="bg"></div>
-							<div class="text">
-								<p class="buttons">
-									<a href="blog-post.html" class="btn btn-template-transparent-primary"><i class="fa fa-link"></i> Read more</a>
-								</p>
+								<?php echo set_image($t4->article_image,'thumb-landscape');?>
 							</div>
 						</div>
 						<div class="content">
-							<h4><a href="blog-post.html">Fashion now</a></h4>
-							<p class="author-category">By <a href="#">John Snow</a> in <a href="blog.html">Webdesign</a>
+							<h4><a href="<?php echo site_url().'blog/'.$t4->article_id.'/'.gen_url($t4->article_title);?>"><?php echo $t4->article_title;?></a></h4>
+							<p class="author-category">Oleh <a href="#"><?php echo $t4->member_name;?></a> Pada <a href="<?php echo site_url().'blog/'.$t4->article_id.'/'.gen_url($t4->category_name);?>"><?php echo $t4->category_name;?></a>
 							</p>
-							<p class="intro">Fifth abundantly made Give sixth hath. Cattle creature i be don't them behold green moved fowl Moved life us beast good yielding. Have bring.</p>
-							<p class="read-more"><a href="blog-post.html" class="btn btn-template-main">Continue reading</a>
+							<p class="intro"><?php echo headline($t4->article_content);?></p>
+							<p class="read-more"><a href="<?php echo site_url().'blog/'.$t4->article_id.'/'.gen_url($t4->article_title);?>" class="btn btn-template-main">Baca Selengkapnya</a>
 							</p>
 						</div>
 					</div>
 				</div>
-
-				<div class="col-md-3 col-sm-6">
-					<div class="box-image-text blog">
-						<div class="top">
-							<div class="image">
-								<img src="<?php echo base_url().'assets/img/portfolio-3.jpg';?>" alt="" class="img-responsive">
-							</div>
-							<div class="bg"></div>
-							<div class="text">
-								<p class="buttons">
-									<a href="blog-post.html" class="btn btn-template-transparent-primary"><i class="fa fa-link"></i> Read more</a>
-								</p>
-							</div>
-						</div>
-						<div class="content">
-							<h4><a href="blog-post.html">Fashion now</a></h4>
-							<p class="author-category">By <a href="#">John Snow</a> in <a href="blog.html">Webdesign</a>
-							</p>
-							<p class="intro">Fifth abundantly made Give sixth hath. Cattle creature i be don't them behold green moved fowl Moved life us beast good yielding. Have bring.</p>
-							<p class="read-more"><a href="blog-post.html" class="btn btn-template-main">Continue reading</a>
-							</p>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-md-3 col-sm-6">
-					<div class="box-image-text blog">
-						<div class="top">
-							<div class="image">
-								<img src="<?php echo base_url().'assets/img/portfolio-5.jpg';?>" alt="" class="img-responsive">
-							</div>
-							<div class="bg"></div>
-							<div class="text">
-								<p class="buttons">
-									<a href="blog-post.html" class="btn btn-template-transparent-primary"><i class="fa fa-link"></i> Read more</a>
-								</p>
-							</div>
-						</div>
-						<div class="content">
-							<h4><a href="blog-post.html">What to do</a></h4>
-							<p class="author-category">By <a href="#">John Snow</a> in <a href="blog.html">Webdesign</a>
-							</p>
-							<p class="intro">Fifth abundantly made Give sixth hath. Cattle creature i be don't them behold green moved fowl Moved life us beast good yielding. Have bring.</p>
-							<p class="read-more"><a href="blog-post.html" class="btn btn-template-main">Continue reading</a>
-							</p>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-md-3 col-sm-6">
-					<div class="box-image-text blog">
-						<div class="top">
-							<div class="image">
-								<img src="<?php echo base_url().'assets/img/portfolio-6.jpg';?>" alt="" class="img-responsive">
-							</div>
-							<div class="bg"></div>
-							<div class="text">
-								<p class="buttons">
-									<a href="blog-post.html" class="btn btn-template-transparent-primary"><i class="fa fa-link"></i> Read more</a>
-								</p>
-							</div>
-						</div>
-						<div class="content">
-							<h4><a href="blog-post.html">5 ways to look awesome</a></h4>
-							<p class="author-category">By <a href="#">John Snow</a> in <a href="blog.html">Webdesign</a>
-							</p>
-							<p class="intro">Am terminated it excellence invitation projection as. She graceful shy believed distance use nay. Lively is people.</p>
-							<p class="read-more"><a href="blog-post.html" class="btn btn-template-main">Continue reading</a>
-							</p>
-						</div>
-					</div>
-				</div>
+				<?php }}?>
 			</div>
 		</div>
 	</div>

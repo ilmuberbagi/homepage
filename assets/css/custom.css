@@ -19,16 +19,30 @@
   src: url('../fonts/Montserrat-Light.ttf') format('truetype');
 }
 
-.img-post{
-	width:100%;
+@font-face {
+  font-family: 'DroidSerif';
+  font-style: normal;
+  src: url('../fonts/DroidSerif.ttf') format('truetype');
+}
+
+.img-post, #post-content img{
+	max-width:100%;
 	padding:2px;
 	border:solid 1px #DDD;
 	margin:10px;
+	margin-top:0px;
 	margin-left:0px;
+	float:left;
 }
 #post-content{
 	text-align:justify;
 	line-height:20px;
+}
+
+.thumb-landscape{	
+	max-width:200px;
+	max-height:150px;
+	clear:both;
 }
 
 #footer{
@@ -44,8 +58,10 @@
 body {
   font-family: "Montserrat", Helvetica, Arial, sans-serif;
 }
-.breadcrumb {
-  font-family: "Montserrat", Helvetica, Arial, sans-serif;
+.breadcrumb, .breadcrumb a {
+  font-family: "DroidSerif", Helvetica, Arial, sans-serif;
+  color:#FFF;
+  text-transform:none;
 }
 
 #productMain .sizes a {
@@ -74,8 +90,12 @@ body {
 }
 
 .bar.background-image-fixed-2 {
-    background: url('../img/bg01.jpg') center top no-repeat;
+    background: url('../img/poster/poster.jpg') center top no-repeat;
     background-attachment: fixed;
+    background-size: cover;
+}
+#heading-breadcrumbs{
+    background: url('../img/poster/s4.jpg') center top no-repeat;
     background-size: cover;
 }
 
@@ -95,14 +115,20 @@ h6,
   font-family: "Montserrat", Helvetica, Arial, sans-serif;
 }
 
+h1, h2, .h1, .h2, h3, .h3{
+	font-family:DroidSerif;
+}
+#heading-breadcrumbs h1{
+	color:#FFF;
+}
 .pagination {
   font-family: "Montserrat", Helvetica, Arial, sans-serif;
 }
 
 .pager {
-  font-family: "Montserrat", Helvetica, Arial, sans-serif;
+  font-family: DroidSerif, Helvetica, Arial, sans-serif;
 }
 
 .label {
-  font-family: "Montserrat", Helvetica, Arial, sans-serif;
+  font-family: DroidSerif, Helvetica, Arial, sans-serif;
 }

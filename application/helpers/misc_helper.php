@@ -30,11 +30,11 @@ function headline($txt){
 	return substr($str, 0, 100).' ...';
 }
 
-function set_image($url){
+function set_image($url, $param=null){
 	$src = 'http://portal.ilmuberbagi.id/assets/img/default.jpg';
 	if($url !== "")
 		$src = $url;
-	return '<img src="'.$src.'" class="img-post">';
+	return '<img src="'.$src.'" class="img-post '.$param.'">';
 }
 
 ?>

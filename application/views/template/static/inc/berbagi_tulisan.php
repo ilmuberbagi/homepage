@@ -1,4 +1,4 @@
-<h3>Berbagi Tulisan</h3>
+<h5>Call for Kontributor Tulisan (Content Writer) Ilmu Berbagi </h5>
 <p>
 	Alhamdulillah sejak portal ilmuberbagi.or.id online pada tahun 2014 hingga saat ini total sudah ratusan artikel telah terbit dengan berbagai macam kategori mulai dari budaya, lingkungan, teknologi dan lain sebagainya. Tentu ini berkat kontribusi para volunteer kontributor tulisan (content writer) yang terus konsisten berbagi ilmu dan pengetahuan sesuai dengan keahlian, minat, bakat, dan hobinya sehingga Ilmu Berbagi dapat sedikit mewarnai konten internet di Indonesia dengan hal-hal yang positif.
 </p>

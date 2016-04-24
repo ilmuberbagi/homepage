@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<?php $this->load->view('template/inc/open_graph');?>
     <title><?php echo isset($title) ? $title : "Mitra Komunitas Ilmu Berbagi Foundation";?></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">

@@ -16,11 +16,17 @@ class Layanan extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 		$this->data['article_categories'] = $this->get_blog_category();
+		$this->data['footer_article'] = $this->footer_article();
 	}
 
 	private function get_blog_category(){
 		$url = "article/category";
 		return json_decode(file_get_contents(API_URL.$url));
+	}
+
+	private function footer_article(){
+		$url = "article/category/all/0/3";
+		return json_decode(file_get_contents(API_URL.$url));		
 	}
 
 	public function read($param){
