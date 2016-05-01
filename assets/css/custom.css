@@ -27,6 +27,8 @@
 
 .img-post, #post-content img{
 	max-width:100%;
+	min-width:50%;
+	height:auto;
 	padding:2px;
 	border:solid 1px #DDD;
 	margin:10px;
@@ -97,6 +99,7 @@ body {
 #heading-breadcrumbs{
     background: url('../img/poster/s4.jpg') center top no-repeat;
     background-size: cover;
+    background-position:center;
 }
 
 #top{ background-color:#444; }
@@ -117,6 +120,9 @@ h6,
 
 h1, h2, .h1, .h2, h3, .h3{
 	font-family:DroidSerif;
+}
+h1, .h1{
+	text-shadow:1px 2px #444;
 }
 #heading-breadcrumbs h1{
 	color:#FFF;

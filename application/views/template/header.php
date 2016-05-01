@@ -1,11 +1,23 @@
-        <header>
+		<?php #print_r($this->session->all_userdata());?>
+		<header>
             <div id="top">
                 <div class="container">
                     <div class="row">
                         <div class="col-xs-5 contact">
-                            <p class="hidden-sm hidden-xs">info@ilmuberbagi.or.id</p>
-                            <p class="hidden-md hidden-lg"><a href="#" data-animate-hover="pulse"><i class="fa fa-phone"></i></a>  <a href="#" data-animate-hover="pulse"><i class="fa fa-envelope"></i></a>
+							<?php if($this->session->userdata('avatar') != ""){?>
+                            <p class="hidden-sm hidden-xs">
+								<img src="<?php echo $this->session->userdata('avatar');?>" class="img-circle"  style="max-width:30px">
+								<span style="margin-left:10px">
+									<a href="http://portal.ilmuberbagi.id/member/<?php echo $this->session->userdata('ibf_code');?>" target="_blank" data-animate-hover="pulse" style="color:#FFF">
+										<?php echo $this->session->userdata('name');?>
+										| Member sejak <?php echo $this->session->userdata('year');?>
+									</a>
+								</span>
+							</p>
+                            <p class="hidden-md hidden-lg">
+								<img src="<?php echo $this->session->userdata('avatar');?>" class="img-circle" style="max-width:30px">
                             </p>
+							<?php } ?>
                         </div>
                         <div class="col-xs-7">
                             <div class="social">
@@ -16,8 +28,12 @@
                             </div>
 
                             <div class="login">
-                                <a href="#" data-toggle="modal" data-target="#login-modal"><i class="fa fa-sign-in"></i> <span class="hidden-xs text-uppercase">Sign in</span></a>
-                                <a href="http://portal.ilmuberbagi.id/register"><i class="fa fa-user"></i> <span class="hidden-xs text-uppercase">Sign up</span></a>
+								<?php if($this->session->userdata('ibf_code') != ""){?>
+									<a href="<?php echo site_url().'auth/logout';?>"><i class="fa fa-sign-in"></i> <span class="hidden-xs text-uppercase">Log Out</span></a>
+								<?php }else{?>
+									<a href="#" data-toggle="modal" data-target="#login-modal"><i class="fa fa-sign-in"></i> <span class="hidden-xs text-uppercase">Sign in</span></a>
+									<a href="http://portal.ilmuberbagi.id/register"><i class="fa fa-user"></i> <span class="hidden-xs text-uppercase">Sign up</span></a>
+								<?php } ?>
                             </div>
                         </div>
                     </div>
@@ -46,7 +62,7 @@
                                     <a href="<?php echo site_url();?>"><i class="fa fa-home"></i> Home</a>
                                 </li>
                                 <li class="dropdown use-yamm yamm-fw <?php echo $this->uri->segment(1) == 'program'?'active':'';?>">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Program<b class="caret"></b></a>
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Program <b class="caret"></b></a>
                                     <ul class="dropdown-menu">
                                         <li>
                                             <div class="yamm-content">
@@ -170,10 +186,10 @@
                     <div class="modal-body">
                         <form action="<?php echo site_url().'auth';?>" method="post">
                             <div class="form-group">
-                                <input type="text" class="form-control" id="email_modal" placeholder="email">
+                                <input type="text" name="username" class="form-control" id="email_modal" placeholder="username atau email">
                             </div>
                             <div class="form-group">
-                                <input type="password" class="form-control" id="password_modal" placeholder="password">
+                                <input type="password" name="password" class="form-control" id="password_modal" placeholder="password">
                             </div>
                             <p class="text-center">
                                 <button class="btn btn-template-main"><i class="fa fa-sign-in"></i> Log in</button>

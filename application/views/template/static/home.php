@@ -6,7 +6,7 @@
 				<div class="item">
 					<div class="row">
 						<div class="col-sm-5 right">
-							<h1>Sharing Knowladge</h1>
+							<h1>Sharing Knowledge</h1>
 							<p>Mengoptimalkan ilmu pengetahuan yang dimiliki anggota Komunitas Ilmu Berbagi hingga dapat bermanfaat bagi kebaikan orang banyak</p>
 						</div>
 						<div class="col-sm-7">
@@ -169,15 +169,15 @@
 					<div class="box-image-text blog">
 						<div class="top">
 							<div class="image">
-								<?php echo set_image($t4->article_image,'thumb-landscape');?>
+								<img src="<?php echo set_image($t4->article_image,'thumb');?>">
 							</div>
 						</div>
 						<div class="content">
-							<h4><a href="<?php echo site_url().'blog/'.$t4->article_id.'/'.gen_url($t4->article_title);?>"><?php echo $t4->article_title;?></a></h4>
-							<p class="author-category">Oleh <a href="#"><?php echo $t4->member_name;?></a> Pada <a href="<?php echo site_url().'blog/'.$t4->article_id.'/'.gen_url($t4->category_name);?>"><?php echo $t4->category_name;?></a>
+							<h4><a href="<?php echo site_url().'blog/read/'.$t4->article_id.'/'.gen_url($t4->article_title);?>"><?php echo $t4->article_title;?></a></h4>
+							<p class="author-category">Oleh <a href="#"><?php echo $t4->author;?></a> Pada <a href="<?php echo site_url().'blog/'.$t4->article_id.'/'.gen_url($t4->category_name);?>"><?php echo $t4->category_name;?></a>
 							</p>
 							<p class="intro"><?php echo headline($t4->article_content);?></p>
-							<p class="read-more"><a href="<?php echo site_url().'blog/'.$t4->article_id.'/'.gen_url($t4->article_title);?>" class="btn btn-template-main">Baca Selengkapnya</a>
+							<p class="read-more"><a href="<?php echo site_url().'blog/read/'.$t4->article_id.'/'.gen_url($t4->article_title);?>" class="btn btn-template-main">Baca Selengkapnya</a>
 							</p>
 						</div>
 					</div>

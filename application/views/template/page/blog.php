@@ -20,6 +20,7 @@
 <div id="content">
 	<div class="container">
 		<div class="row">
+			<h3>Blog</h3>
 			<?php if(!empty($article)){ ?>
 			<div class="col-md-9" id="blog-listing-small">
 				<div class="row">
@@ -28,20 +29,13 @@
 						<div class="box-image-text blog">
 							<div class="top">
 								<div class="image">
-									<?php echo set_image($ar->article_image);?>
-								</div>
-								<div class="bg"></div>
-								<div class="text">
-									<p class="buttons">
-										<a href="<?php echo site_url().'blog/read/'.$ar->article_id.'/'.gen_url($ar->article_title);?>" class="btn btn-template-transparent-primary"><i class="fa fa-link"></i> Baca Selengkapnya</a>
-									</p>
+									<img src="<?php echo set_image($ar->article_image,'thumb');?>" class="img-responsive img-post" style="width:150px; height:120px">
 								</div>
 							</div>
 							<div class="content">
-								<h5><a href="<?php echo site_url().'blog/read/'.$ar->article_id.'/'.gen_url($ar->article_title);?>"><?php echo $ar->article_title;?></a></h5>
-								<p class="author-category">Oleh <a href="#"><?php echo $ar->member_name;?></a> @ <a href="<?php echo site_url().'blog/category/'.gen_url($ar->category_name);?>"><?php echo $ar->category_name;?></a>
+								<div class="author-category"><a href="<?php echo site_url().'blog/read/'.$ar->article_id.'/'.gen_url($ar->article_title);?>"><?php echo $ar->article_title;?></a></div>
+								<p class="title">Oleh <a href="#"><?php echo $ar->author;?></a> @ <a href="<?php echo site_url().'blog/category/'.gen_url($ar->category_name);?>"><?php echo $ar->category_name;?></a>
 								</p>
-								<p class="intro"><?php echo headline($ar->article_content);?></p>
 								<p class="read-more"><a href="<?php echo site_url().'blog/read/'.$ar->article_id.'/'.gen_url($ar->article_title);?>" class="btn btn-template-main">Baca Selengkapnnya</a>
 								</p>
 							</div>
@@ -92,7 +86,7 @@
 					<div class="panel-body">
 						<ul class="nav nav-pills nav-stacked">
 							<?php if(!empty($article_categories)){foreach($article_categories as $ac){?>
-							<li class="<?php echo gen_url($ac->category_name) == $this->uri->segment(3) ? 'active':'';?>"><a href="<?php echo site_url().'blog/category/'.gen_url($ac->category_name);?>"><?php echo $ac->category_name.'<span class="label label-warning pull-right">'.$ac->count_article.'</span>';?></a></li>
+							<li class="<?php echo gen_url($ac->category_name) == $this->uri->segment(3) ? 'active':'';?>"><a href="<?php echo site_url().'blog/category/'.gen_url($ac->category_name);?>"><?php echo $ac->category_name;?></a></li>
 							<?php }} ?>
 						</ul>
 					</div>

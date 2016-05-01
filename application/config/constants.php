@@ -36,5 +36,7 @@ defined('EXIT__AUTO_MIN')      OR define('EXIT__AUTO_MIN', 9); // lowest automat
 defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
 
 // API URL
-define('API_URL','http://services.ilmuberbagi.id/');
-define('API_URL_LOCAL','http://localhost/ibf/services/');
+// if($_SERVER['SERVER_NAME'] == 'localhost' || $_SERVER['SERVER_NAME'] == '::1')
+	// define('API_URL','http://localhost/ibf/services/');
+// else
+	define('API_URL','http://services.ilmuberbagi.id/');

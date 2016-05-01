@@ -30,11 +30,24 @@ function headline($txt){
 	return substr($str, 0, 100).' ...';
 }
 
-function set_image($url, $param=null){
-	$src = 'http://portal.ilmuberbagi.id/assets/img/default.jpg';
-	if($url !== "")
-		$src = $url;
-	return '<img src="'.$src.'" class="img-post '.$param.'">';
+function set_image($url, $param = null){
+	if($url != null){
+		if($param == "thumb"){
+			$res = str_replace('uploads/','uploads/thumbs/', $url);
+		}else if($param == "profile-thumb"){
+			$res = str_replace('/foto/','/thumbs/', $url);
+		}else
+			$res = $url;
+	}else
+		$res = base_url().'assets/img/default.jpg';
+	
+	return $res;
 }
+
+function first_paragraph($string){
+	$string = substr($string,0, strpos($string, "</p>")+4);
+	return $string;
+}
+
 
 ?>

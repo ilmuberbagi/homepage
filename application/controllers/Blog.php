@@ -71,6 +71,10 @@ class Blog extends CI_Controller {
 		$url = "article/read/".$id;
 		$this->data['article'] = json_decode(file_get_contents(API_URL.$url));
 		$this->data['title'] = 'IBF Artikel : '.$title;
+		
+		# get comments
+		$comment_url = "";
+		
 		# open graph for facebook
 		$this->data['ogfb']['og:url'] = current_url();
 		$this->data['ogfb']['og:type'] = 'article';
@@ -93,8 +97,30 @@ class Blog extends CI_Controller {
 	 * Comments post
 	 */
 	public function post_comment(){
+		define('AUTH_API_URL','http://services.ilmuberbagi.id/article/comment');
 		$name = $this->security->xss_clean($this->input->post('guest_name'));
 		$email = $this->security->xss_clean($this->input->post('guest_email'));
+		$content = $this->security->xss_clean($this->input->post('guest_comment'));
+		$datapost = array(
+			'member_id'				=> $this->session->userdata('id'),
+			'comment_articel_id'	=> $this->input->post('article_id'),
+			'comment_author'		=> $name,
+			'comment_author_email'	=> $email,
+			'comment_author_url'	=> $this->session->userdata('avatar'),
+			'comment_author_ip'		=> $this->input->post('ip'),
+			'comment_content'		=> $content,
+			'comment_date_input'	=> date('Y-m-d H:i:s')
+		);
+		$postdata = http_build_query(array('api_kode' => 1000, 'api_datapost' => $datapost));
+		$param = array('http' =>
+			array(
+				'method'  => 'POST',
+				'header'  => 'Content-type: application/x-www-form-urlencoded',
+				'content' => $postdata
+			));
+		$context  = stream_context_create($param);
+		$res = file_get_contents(AUTH_API_URL, false, $context);
+		echo $res;
 	}
 	
 }

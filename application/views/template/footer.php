@@ -4,7 +4,7 @@
 			<h3>Apakah Anda mendukung gerakan berbagi berkelanjutan?</h3>
 		</div>
 		<div class="col-md-4 col-sm-12">
-			<a href="#" class="btn btn-template-transparent-primary">Mari Berdonasi</a>
+			<a href="http://ilmuberbagi.id/blog/read/364/donasi" class="btn btn-template-transparent-primary">Mari Berdonasi</a>
 		</div>
 	</div>
 </div>
@@ -33,7 +33,9 @@
 				<?php if(!empty($footer_article)){ foreach ($footer_article as $fa){?>
 				<div class="item same-height-row clearfix">
 					<div class="image same-height-always">
-						<a href="<?php echo site_url().'blog/read/'.$fa->article_id.'/'.gen_url($fa->article_title);?>"><?php echo $fa->article_image ? set_image($fa->article_image):'<i class="fa fa-image"></i>';?></a>
+						<a href="<?php echo site_url().'blog/read/'.$fa->article_id.'/'.gen_url($fa->article_title);?>">
+							<img src="<?php echo set_image($fa->article_image,'thumb');?>" style="max-width:40px">
+						</a>
 					</div>
 					<div class="name same-height-always">
 						<h5><a href="<?php echo site_url().'blog/read/'.$fa->article_id.'/'.gen_url($fa->article_title);?>"><?php echo $fa->article_title;?></a></h5>

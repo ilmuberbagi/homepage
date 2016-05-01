@@ -20,10 +20,10 @@
 		<div class="row">
 			<div class="col-md-9" id="blog-post">
 				
-				<p class="text-muted text-uppercase mb-small text-right">Oleh <a href="#"><?php echo $article[0]->member_name;?></a> | <?php echo date('Y M d - H:i', strtotime($article[0]->article_date_update));?></p>
+				<p class="text-muted text-uppercase mb-small text-right">Oleh <a href="#"><?php echo $article[0]->author;?></a> | <?php echo date('d/m/Y - H:i', strtotime($article[0]->article_date_input));?></p>
 				<p class="lead"></p>
 				<div id="post-content">
-					<?php echo set_image($article[0]->article_image);?>
+					<h2><?php echo $article[0]->article_title;?></h2>
 					<?php echo $article[0]->article_content;?>
 				</div>
 				<div class="social-sharing" style="clear:both; font-size:4em">
@@ -44,10 +44,8 @@
 				<div id="comments">
 					<h4 class="text-uppercase">1 comments</h4>
 					<div class="row comment">
-						<div class="col-sm-3">
-							<img src="http://portal.ilmuberbagi.id/assets/img/foto/IB_eadabe5bc2664563cac96e165f84783d93e2d2a4.jpg" class="img-responsive img-circle">
-						</div>
-						<div class="col-sm-9 col-md-10">
+						<div class="col-sm-12">
+							<?php echo set_image($this->session->userdata('avatar'),'thumb','50px');?>
 							<h5 class="text-uppercase">Sabbana Azmi</h5>
 							<p class="posted"><i class="fa fa-clock-o"></i> <?php echo date('d/m/Y H:i');?></p>
 							<p>Artikelnya bagus kak, terimakasih sudah berbagi ilmunya kepada kita semua...</p>
@@ -56,26 +54,24 @@
 				</div>
 
 				<div id="comment-form">
-					<h4 class="text-uppercase">Leave comment</h4>
-					<?php if($this->session->flashdata('comment_status') !== ""){?>
+					<h2 class="text-uppercase">Leave comment</h2>
+					<?php if($this->session->flashdata('comment_status') != ""){?>
 					<div class="alert alert-info"><?php echo $this->session->flashdata('comment_status');?></div>
 					<?php } ?>
 					<form action="<?php echo site_url().'blog/post_comment';?>" method="post">
 						<input type="hidden" name="article_id" value="<?php echo $article[0]->article_id;?>">
-						<input type="hidden" name="article_id" value="<?php echo $article[0]->article_id;?>">
+						<input type="hidden" name="ip" value="<?php echo $_SERVER['REMOTE_ADDR'];?>">
 						<div class="row">
 							<div class="col-sm-6">
 								<div class="form-group">
-									<label for="name">Name <span class="required">*</span></label>
-									<input type="text" name="guest_name" class="form-control" id="name" value="<?php echo $this->session->userdata('name');?>">
+									<input type="text" name="guest_name" class="form-control" id="name" value="<?php echo $this->session->userdata('name');?>" <?php echo $this->session->userdata('name')!=""? 'readonly':'';?> placeholder="Name">
 								</div>
 							</div>
 						</div>
 						<div class="row">
 							<div class="col-sm-6">
 								<div class="form-group">
-									<label for="email">Email <span class="required">*</span></label>
-									<input type="email" name="guest_email" class="form-control" id="email" value="<?php echo $this->session->userdata('email');?>">
+									<input type="email" name="guest_email" class="form-control" id="email" value="<?php echo $this->session->userdata('email');?>" <?php echo $this->session->userdata('email')!=""? 'readonly':'';?> placeholder="Email">
 								</div>
 							</div>
 						</div>
@@ -130,7 +126,7 @@
 					<div class="panel-body">
 						<ul class="nav nav-pills nav-stacked">
 							<?php if(!empty($article_categories)){foreach($article_categories as $ac){?>
-							<li class="<?php echo gen_url($ac->category_name) == $this->uri->segment(3) ? 'active':'';?>"><a href="<?php echo site_url().'blog/category/'.gen_url($ac->category_name);?>"><?php echo $ac->category_name.'<span class="label label-warning pull-right">'.$ac->count_article.'</span>';?></a></li>
+							<li class="<?php echo gen_url($ac->category_name) == $this->uri->segment(3) ? 'active':'';?>"><a href="<?php echo site_url().'blog/category/'.gen_url($ac->category_name);?>"><?php echo $ac->category_name;?></a></li>
 							<?php }} ?>
 						</ul>
 					</div>
