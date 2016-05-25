@@ -10,8 +10,18 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
+function gen_url_old($str){
+	return strtolower(str_replace(array(' ','"',"'",')','('),'-', $str));
+}
+
 function gen_url($str){
-	return strtolower(str_replace(array(' ','"',"'"),'-', $str));
+   $str = str_replace(array('(',')'),'', $str);
+   $str = preg_replace('~[^\\pL0-9_]+~u', '-', $str);
+   $str = trim($str, "-");
+   $str = iconv("utf-8", "us-ascii//TRANSLIT", $str);
+   $str = strtolower($str);
+   $str = preg_replace('~[^-a-z0-9_]+~', '', $str);
+   return $str;
 }
 
 function get_image_from_content($html){
@@ -47,6 +57,10 @@ function set_image($url, $param = null){
 function first_paragraph($string){
 	$string = substr($string,0, strpos($string, "</p>")+4);
 	return $string;
+}
+
+function create_navigate($page, $offset, $count){
+	
 }
 
 

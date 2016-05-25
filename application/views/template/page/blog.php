@@ -21,10 +21,10 @@
 	<div class="container">
 		<div class="row">
 			<h3>Blog</h3>
-			<?php if(!empty($article)){ ?>
+			<?php if(!empty($article->data)){ ?>
 			<div class="col-md-9" id="blog-listing-small">
 				<div class="row">
-					<?php foreach($article as $ar){?>
+					<?php foreach($article->data as $ar){?>
 					<div class="col-md-4 col-sm-6">
 						<div class="box-image-text blog">
 							<div class="top">
@@ -85,7 +85,7 @@
 					</div>
 					<div class="panel-body">
 						<ul class="nav nav-pills nav-stacked">
-							<?php if(!empty($article_categories)){foreach($article_categories as $ac){?>
+							<?php if(!empty($article_categories->data)){foreach($article_categories->data as $ac){?>
 							<li class="<?php echo gen_url($ac->category_name) == $this->uri->segment(3) ? 'active':'';?>"><a href="<?php echo site_url().'blog/category/'.gen_url($ac->category_name);?>"><?php echo $ac->category_name;?></a></li>
 							<?php }} ?>
 						</ul>

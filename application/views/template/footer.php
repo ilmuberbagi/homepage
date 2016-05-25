@@ -30,7 +30,7 @@
 		<div class="col-md-3 col-sm-6">
 			<h4>Blog</h4>
 			<div class="blog-entries">
-				<?php if(!empty($footer_article)){ foreach ($footer_article as $fa){?>
+				<?php if(!empty($footer_article->data)){ foreach ($footer_article->data as $fa){?>
 				<div class="item same-height-row clearfix">
 					<div class="image same-height-always">
 						<a href="<?php echo site_url().'blog/read/'.$fa->article_id.'/'.gen_url($fa->article_title);?>">

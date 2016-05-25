@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @package    mitrakomunitas/libraries - 2016
+ * @package    portal.ilmuberbagi/libraries - 2016
  * @author     Sabbana
  * @copyright  Divisi IT IBF
  * @version    1.0
@@ -23,7 +23,6 @@ class Lib_mailer {
     private $ci;
 	private $mail;
     private $data;
-    private $redis;
 
     function __construct() {
     	require 'mailer/class.phpmailer.php';
@@ -33,20 +32,24 @@ class Lib_mailer {
     }
 
     public function init($from=array()) {
-    	$this->mail->setFrom((isset($from['email'])?$from['email']:'noreply.mitrakomunitas@ilmuberbagi.or.id'), (isset($from['name'])?$from['name']:'Mitra Komunitas IBF'));
+    	$this->mail->setFrom((isset($from['email'])?$from['email']:'noreply.info@ilmuberbagi.or.id'), (isset($from['name'])?$from['name']:'Portal Komunitas IBF'));
  		$this->isSMTP();
     }
 
-    public function isSMTP($host='localhost', $port=25, $auth=FALSE, $username='', $password='') {
+	public function isSMTP()
+	{
+		# mail relay google 
     	$this->mail->isSMTP();
-    	$this->mail->Host = $host;
-    	$this->mail->Port = $port;
-    	$this->mail->SMTPAuth = $auth;
-    	if(!empty($username))
-    		$this->mail->Username = $username;
-    	if(!empty($password))
-    		$this->mail->Password = $password;
+		$this->mail->SMTPDebug = false; // debugging: 1 = errors and messages, 2 = messages only
+		$this->mail->SMTPAuth = true; // authentication enabled
+		$this->mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for Gmail
+		$this->mail->Host = "smtp.gmail.com";
+		$this->mail->Port = 465; // or 587
+		$this->mail->IsHTML(true);
+		$this->mail->Username = "info@ilmuberbagi.or.id";
+		$this->mail->Password = "chonnam2012";
     }
+
 
     public function sendmail($to, $subject, $message, $cc=array(), $bcc=array()) {
     	if(!is_array($to))
@@ -76,7 +79,6 @@ class Lib_mailer {
     	if(!$this->mail->send()) {
     		return -1;
     	}
-
     	return TRUE;
     }
 

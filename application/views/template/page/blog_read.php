@@ -42,23 +42,26 @@
 				</div>
 				
 				<div id="comments">
-					<h4 class="text-uppercase">1 comments</h4>
+					<h4 class="text-uppercase"><?php echo $count_comment;?> Komentar</h4>
+					<?php if(!empty($comments)){ foreach($comments as $c){?>
 					<div class="row comment">
 						<div class="col-sm-12">
-							<?php echo set_image($this->session->userdata('avatar'),'thumb','50px');?>
-							<h5 class="text-uppercase">Sabbana Azmi</h5>
-							<p class="posted"><i class="fa fa-clock-o"></i> <?php echo date('d/m/Y H:i');?></p>
-							<p>Artikelnya bagus kak, terimakasih sudah berbagi ilmunya kepada kita semua...</p>
+							<?php echo set_image($c['comment_author_avatar'],'thumb','50px');?>
+							<h5 class="text-uppercase"><?php echo $c['comment_author'];?></h5>
+							<p class="posted"><i class="fa fa-clock-o"></i> <?php echo date('d/m/Y H:i', strtotime($c['comment_date_input']));?></p>
+							<p><?php echo $c['comment_content'];?></p>		
 						</div>
 					</div>
+					<?php }}?>
 				</div>
-
+				<?php #print_r($this->session->all_userdata());?>
 				<div id="comment-form">
-					<h2 class="text-uppercase">Leave comment</h2>
+					<h2 class="text-uppercase">Komentar</h2>
 					<?php if($this->session->flashdata('comment_status') != ""){?>
 					<div class="alert alert-info"><?php echo $this->session->flashdata('comment_status');?></div>
 					<?php } ?>
 					<form action="<?php echo site_url().'blog/post_comment';?>" method="post">
+						<input type="hidden" name="avatar" value="<?php echo $this->session->userdata('avatar')!=""? $this->session->userdata('avatar'): base_url().'http://portal.ilmuberbagi.id/assets/img/foto/default.png';?>">
 						<input type="hidden" name="article_id" value="<?php echo $article[0]->article_id;?>">
 						<input type="hidden" name="ip" value="<?php echo $_SERVER['REMOTE_ADDR'];?>">
 						<div class="row">
@@ -72,6 +75,13 @@
 							<div class="col-sm-6">
 								<div class="form-group">
 									<input type="email" name="guest_email" class="form-control" id="email" value="<?php echo $this->session->userdata('email');?>" <?php echo $this->session->userdata('email')!=""? 'readonly':'';?> placeholder="Email">
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-6">
+								<div class="form-group">
+									<input type="url" name="guest_website" class="form-control" id="website" value="<?php echo $this->session->userdata('website');?>" <?php echo $this->session->userdata('webssite')!=""? 'readonly':'';?> placeholder="Website">
 								</div>
 							</div>
 						</div>
@@ -121,11 +131,11 @@
 
 				<div class="panel panel-default sidebar-menu">
 					<div class="panel-heading">
-						<h3 class="panel-title">Categories</h3>
+						<h3 class="panel-title">Kategori</h3>
 					</div>
 					<div class="panel-body">
 						<ul class="nav nav-pills nav-stacked">
-							<?php if(!empty($article_categories)){foreach($article_categories as $ac){?>
+							<?php if(!empty($article_categories->data)){foreach($article_categories->data as $ac){?>
 							<li class="<?php echo gen_url($ac->category_name) == $this->uri->segment(3) ? 'active':'';?>"><a href="<?php echo site_url().'blog/category/'.gen_url($ac->category_name);?>"><?php echo $ac->category_name;?></a></li>
 							<?php }} ?>
 						</ul>

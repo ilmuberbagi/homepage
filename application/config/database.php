@@ -76,9 +76,13 @@ $query_builder = TRUE;
 $db['default'] = array(
 	'dsn'	=> '',
 	'hostname' => 'localhost',
+	// 'username' => 'root',
+	// 'password' => 'chonnam2012#@!',
+	// 'database' => 'ibf_portal',
 	'username' => 'root',
 	'password' => '',
 	'database' => 'portal',
+
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

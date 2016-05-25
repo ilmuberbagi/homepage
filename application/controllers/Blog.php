@@ -83,12 +83,15 @@ class Blog extends CI_Controller {
 		$this->data['ogfb']['og:description'] = headline($this->data['article'][0]->article_content);
 		$this->data['ogfb']['og:site_name'] = 'Ilmu Berbagi - Artikel';
 		# open graph for twitter
-		$data['ogtw']['twitter:card'] = 'detail_article';
-		$data['ogtw']['twitter:site'] = '@ilmuberbagi';
-		$data['ogtw']['twitter:creator'] = '@ilmuberbagi';
-		$data['ogtw']['twitter:title'] = (string)$this->data['article'][0]->article_title;
-		$data['ogtw']['twitter:image'] = $this->data['ogfb']['og:image'];
-		$data['ogtw']['twitter:description'] = $this->data['ogfb']['og:description'];
+		$this->data['ogtw']['twitter:card'] = 'detail_article';
+		$this->data['ogtw']['twitter:site'] = '@ilmuberbagi';
+		$this->data['ogtw']['twitter:creator'] = '@ilmuberbagi';
+		$this->data['ogtw']['twitter:title'] = (string)$this->data['article'][0]->article_title;
+		$this->data['ogtw']['twitter:image'] = $this->data['ogfb']['og:image'];
+		$this->data['ogtw']['twitter:description'] = $this->data['ogfb']['og:description'];
+		$this->load->model('Mdl_misc','misc');
+		$this->data['comments'] = $this->misc->get_comment_article($id);
+		$this->data['count_comment'] = $this->misc->count_comment($id);
 
 		$this->load->view('template', $this->data);		
 	}
@@ -97,7 +100,7 @@ class Blog extends CI_Controller {
 	 * Comments post
 	 */
 	public function post_comment(){
-		define('AUTH_API_URL','http://services.ilmuberbagi.id/article/comment');
+		// define('AUTH_API_URL','http://services.ilmuberbagi.id/article/comment');
 		$name = $this->security->xss_clean($this->input->post('guest_name'));
 		$email = $this->security->xss_clean($this->input->post('guest_email'));
 		$content = $this->security->xss_clean($this->input->post('guest_comment'));
@@ -105,6 +108,7 @@ class Blog extends CI_Controller {
 			'member_id'				=> $this->session->userdata('id'),
 			'comment_articel_id'	=> $this->input->post('article_id'),
 			'comment_author'		=> $name,
+			'comment_author_avatar'	=> $name,
 			'comment_author_email'	=> $email,
 			'comment_author_url'	=> $this->session->userdata('avatar'),
 			'comment_author_ip'		=> $this->input->post('ip'),

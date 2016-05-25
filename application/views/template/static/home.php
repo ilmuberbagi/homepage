@@ -164,7 +164,7 @@
 			</p>
 
 			<div class="row">
-				<?php if(!empty($top4)){ foreach ($top4 as $t4){?>
+				<?php if(!empty($top4->data)){ foreach ($top4->data as $t4){?>
 				<div class="col-md-3 col-sm-6">
 					<div class="box-image-text blog">
 						<div class="top">

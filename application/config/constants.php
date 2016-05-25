@@ -37,6 +37,6 @@ defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest auto
 
 // API URL
 // if($_SERVER['SERVER_NAME'] == 'localhost' || $_SERVER['SERVER_NAME'] == '::1')
-	// define('API_URL','http://localhost/ibf/services/');
 // else
-	define('API_URL','http://services.ilmuberbagi.id/');
+	define('API_URL','http://localhost/ibf/services/');
+	// define('API_URL','http://services.ilmuberbagi.id/');

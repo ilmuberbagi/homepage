@@ -154,7 +154,7 @@
                                 <li class="dropdown">
                                     <a href="javascript: void(0)" class="dropdown-toggle" data-toggle="dropdown">Blog <b class="caret"></b></a>
                                     <ul class="dropdown-menu">
-                                        <?php if(!empty($article_categories)){foreach($article_categories as $ac){?>
+                                        <?php if(!empty($article_categories->data)){foreach($article_categories->data as $ac){?>
 										<li><a href="<?php echo site_url().'blog/category/'.gen_url($ac->category_name);?>"><?php echo $ac->category_name;?></a></li>
 										<?php }} ?>
                                     </ul>
