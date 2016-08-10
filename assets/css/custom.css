@@ -29,13 +29,16 @@
 	max-width:100%;
 	min-width:50%;
 	height:auto;
-	padding:2px;
-	border:solid 1px #DDD;
-	margin:10px;
+	padding:5px;
+	border:solid 1px #AAA;
 	margin-top:0px;
 	margin-left:0px;
-	float:left;
+	margin-right:10px;
 }
+.img-post, #post-content img:hover{
+	border:solid 1px #000;
+}
+
 #post-content{
 	text-align:justify;
 	line-height:20px;
